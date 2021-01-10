@@ -20,15 +20,17 @@ const Works = () => {
 
 	return (
 		<section className="works-section my-5 py-5 w-100">
-			<Container fluid>
+			<Container >
 				<div className="py-4">
-					<h3 className='text-center'
-        style={{
-          fontWeight: '500',
-          fontSize: '36px',
-          marginBottom: '3rem',
-          color: 'white',
-        }}>
+					<h3
+						className="text-center"
+						style={{
+							fontWeight: '500',
+							fontSize: '36px',
+							marginBottom: '3rem',
+							color: 'white'
+						}}
+					>
 						Here are some of <span style={{ color: '#7AB259' }}>our works</span>
 					</h3>
 					<br />
