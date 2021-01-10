@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AllPartner from '../../fakeData/fakePartner';
+import AllPartner from '../../../fakeData/fakePartner';
 import SinglePartner from '../SinglePartner/SinglePartner';
 
 const Partner = () => {

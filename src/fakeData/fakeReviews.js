@@ -1,4 +1,4 @@
-const fakeReviews = [
+const AllReviews = [
   {
     name: "Nash Patrik",
     img: "https://imgur.com/6DXJDgm.png",
@@ -22,4 +22,4 @@ const fakeReviews = [
   },
 ];
 
-export default fakeReviews;
+export default AllReviews;

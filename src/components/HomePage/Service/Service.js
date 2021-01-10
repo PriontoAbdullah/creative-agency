@@ -1,6 +1,6 @@
 import { Frame } from "framer";
 import React, { useEffect, useState } from "react";
-import AllServiceList from '../../fakeData/fakeServiceList';
+import AllServiceList from '../../../fakeData/fakeServiceList';
 import SingleService from "../SingleService/SingleService";
 
 const Service = () => {
