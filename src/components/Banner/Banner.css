@@ -27,4 +27,10 @@ a.hire {
 	padding: 10px 45px;
 	border-radius: 6px;
 	text-decoration: none !important;
+	transition: all 0.5s ease-in-out;
+}
+
+a.hire:hover {
+	background: #7ab259;
+	box-shadow: 0 8px 6px -6px #111430;
 }

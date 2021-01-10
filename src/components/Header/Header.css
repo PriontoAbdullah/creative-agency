@@ -13,7 +13,7 @@ img.logoImg {
 	font-size: 14px;
 }
 
-.navbar-nav .active {
+.active {
 	border-bottom: 3px solid #7ab259;
 	font-weight: 700;
 }
@@ -27,7 +27,8 @@ a.loginBtn {
 	transition: all 0.5s ease;
 }
 a.loginBtn:hover {
-	background: #af7900;
+	background: #7ab259;
+	box-shadow: 0 8px 6px -6px #111430;
 }
 button.logout {
 	background-color: #111430;
