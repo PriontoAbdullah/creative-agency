@@ -8,6 +8,7 @@ import logo from '../../../images/logos/logo.png';
 import CreateReview from '../CreateReview/CreateReview';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import Order from '../Order/Order';
+import ServiceAdd from '../ServiceAdd/ServiceAdd';
 import ServiceList from '../ServiceList/ServiceList';
 import ServicesList from '../ServicesList/ServicesList';
 import './Dashboard.css';
@@ -69,9 +70,6 @@ const DashBoard = () => {
 									<Link to="/dashboard/create-review">
 										<FontAwesomeIcon icon={faCommentDots} /> Reviews
 									</Link>
-									<Link to="/dashboard/makeAdmin">
-										<FontAwesomeIcon icon={faUserPlus} /> Admin Dashboard
-									</Link>
 								</div>
 							)}
 						</div>
@@ -100,6 +98,7 @@ const DashBoard = () => {
 							<Route path="/dashboard/service-list" component={ServiceList} />
 							<Route path="/dashboard/create-review" component={CreateReview} />
                             <Route path='/dashboard/AllOrders' component={ServicesList} />
+                            <Route path='/dashboard/serviceAdd' component={ServiceAdd} />
 						</div>
 					</div>
 				</div>
