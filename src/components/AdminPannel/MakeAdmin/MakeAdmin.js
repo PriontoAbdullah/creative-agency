@@ -19,7 +19,7 @@ const MakeAdmin = () => {
 
 	const handleAdminSubmit = (event) => {
 		event.preventDefault();
-		fetch('http://localhost:8080/addAdmin', {
+		fetch('https://creative-agency-71.herokuapp.com/addAdmin', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(newAdmin)

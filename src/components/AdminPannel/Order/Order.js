@@ -46,7 +46,7 @@ const Order = () => {
 		formData.append('details', newOrder.details);
 		formData.append('status', newOrder.status);
 
-		fetch('http://localhost:8080/addNewOrder', {
+		fetch('https://creative-agency-71.herokuapp.com/addNewOrder', {
 			method: 'POST',
 			body: formData
 		})

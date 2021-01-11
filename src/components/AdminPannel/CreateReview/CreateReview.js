@@ -26,7 +26,7 @@ const CreateReview = () => {
 
 	const handleReviewSubmit = (event) => {
 		event.preventDefault();
-		fetch('http://localhost:8080/addSingleReview', {
+		fetch('https://creative-agency-71.herokuapp.com/addSingleReview', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(newReview)

@@ -8,7 +8,7 @@ const ServiceList = () => {
   const [listOfService, SetListOfService] = useState([]);
   useEffect(() => {
     fetch(
-      `http://localhost:8080/getMyOrder?email=${LoggedInUser.email}`
+      `https://creative-agency-71.herokuapp.com/getMyOrder?email=${LoggedInUser.email}`
     )
       .then(res => res.json())
       .then(getlistOfService => {

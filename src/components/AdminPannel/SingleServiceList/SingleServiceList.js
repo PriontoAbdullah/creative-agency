@@ -7,7 +7,7 @@ const SingleServiceList = props => {
   const changeStatus = (id, e) => {
     const formData = new FormData();
     formData.append('status', e.target.value);
-    fetch(`http://localhost:8080/updateStatus/${id}`, {
+    fetch(`https://creative-agency-71.herokuapp.com/updateStatus/${id}`, {
       method: 'PATCH',
       body: formData,
     }).then(res => res.json());

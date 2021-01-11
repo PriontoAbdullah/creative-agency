@@ -18,7 +18,7 @@ const DashBoard = () => {
     let history = useHistory();
 
 	useEffect(() => {
-		fetch(`http://localhost:8080/getAdmin?email=${LoggedInUser.email}`).then((res) => res.json()).then((data) => {
+		fetch(`https://creative-agency-71.herokuapp.com/getAdmin?email=${LoggedInUser.email}`).then((res) => res.json()).then((data) => {
 			console.log(data);
 			if (data) {
 				const newUser = { ...LoggedInUser };
