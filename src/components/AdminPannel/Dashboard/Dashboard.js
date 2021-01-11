@@ -5,6 +5,7 @@ import { Link, Route, useHistory } from 'react-router-dom';
 import SplitPane from 'react-split-pane';
 import { UserContext } from '../../../App';
 import logo from '../../../images/logos/logo.png';
+import CreateReview from '../CreateReview/CreateReview';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import Order from '../Order/Order';
 import ServiceList from '../ServiceList/ServiceList';
@@ -13,25 +14,20 @@ import './Dashboard.css';
 const DashBoard = () => {
 	const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
 
-	useEffect(
-		() => {
-			fetch(`http://localhost:8080/getAdmin?email=${LoggedInUser.email}`)
-				.then((res) => res.json())
-				.then((data) => {
-					console.log(data);
-					if (data) {
-						const newUser = { ...LoggedInUser };
-						newUser.setUser = true;
-						SetLoggedInUser(newUser);
-					} else {
-						const newUser = { ...LoggedInUser };
-						newUser.setUser = false;
-						SetLoggedInUser(newUser);
-					}
-				});
-		},
-		[ ]
-	);
+	useEffect(() => {
+		fetch(`http://localhost:8080/getAdmin?email=${LoggedInUser.email}`).then((res) => res.json()).then((data) => {
+			console.log(data);
+			if (data) {
+				const newUser = { ...LoggedInUser };
+				newUser.setUser = true;
+				SetLoggedInUser(newUser);
+			} else {
+				const newUser = { ...LoggedInUser };
+				newUser.setUser = false;
+				SetLoggedInUser(newUser);
+			}
+		});
+	}, []);
 
 	let history = useHistory();
 
@@ -89,13 +85,19 @@ const DashBoard = () => {
 				<div className="col-10 dashboardRight pt-5">
 					<div className="pageNameandUser d-flex justify-content-between px-5">
 						<h6>{!LoggedInUser.setUser ? 'Order' : 'Admin Panel'}</h6>
-						{<p className="lead">{LoggedInUser.name} </p>}
+						{
+							<div className=" d-flex justify-content-between">
+								<p className="lead">{LoggedInUser.name} </p>
+								<img src={LoggedInUser.photoURL} alt="user" className="ml-3 pt-0 mt-0" width="35px" height="32px" />
+							</div>
+						}
 					</div>
 					<div className="dashboardDetails">
 						<div className="componentList" style={{ padding: '3rem' }}>
 							<Route path="/dashboard/order" component={Order} />
 							<Route path="/dashboard/makeAdmin" component={MakeAdmin} />
-                            <Route path='/dashboard/service-list' component={ServiceList} />
+							<Route path="/dashboard/service-list" component={ServiceList} />
+							<Route path="/dashboard/create-review" component={CreateReview} />
 						</div>
 					</div>
 				</div>

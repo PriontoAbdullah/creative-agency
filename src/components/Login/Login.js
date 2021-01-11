@@ -33,9 +33,10 @@ const Login = () => {
 			.auth()
 			.signInWithPopup(provider)
 			.then((result) => {
-				const { displayName, email } = result.user;
+				const { displayName, email, photoURL } = result.user;
 				const newUser = {
 					isLoggedIn: true,
+					photoURL: photoURL,
 					name: displayName,
 					email: email,
 				};
