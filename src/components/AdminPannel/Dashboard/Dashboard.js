@@ -7,6 +7,7 @@ import { UserContext } from '../../../App';
 import logo from '../../../images/logos/logo.png';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import Order from '../Order/Order';
+import ServiceList from '../ServiceList/ServiceList';
 import './Dashboard.css';
 
 const DashBoard = () => {
@@ -62,7 +63,7 @@ const DashBoard = () => {
 								</div>
 							) : (
 								<div className="d-flex flex-column">
-									<Link to="/dashboard">
+									<Link to="/dashboard/order">
 										<FontAwesomeIcon icon={faCartPlus} /> Order
 									</Link>
 									<Link to="/dashboard/service-list">
@@ -78,7 +79,7 @@ const DashBoard = () => {
 							)}
 						</div>
 					</div>
-					<div className="mt-auto">
+					<div className="mt-auto pt-2">
 						<p onClick={logoutHandle}>
 							<FontAwesomeIcon icon={faSignOutAlt} /> Logout
 						</p>
@@ -92,8 +93,9 @@ const DashBoard = () => {
 					</div>
 					<div className="dashboardDetails">
 						<div className="componentList" style={{ padding: '3rem' }}>
-							<Route path="/dashboard" component={Order} />
+							<Route path="/dashboard/order" component={Order} />
 							<Route path="/dashboard/makeAdmin" component={MakeAdmin} />
+                            <Route path='/dashboard/service-list' component={ServiceList} />
 						</div>
 					</div>
 				</div>

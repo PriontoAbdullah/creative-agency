@@ -11,7 +11,7 @@ const Service = () => {
 
   const handleRoute = service => {
     SetSelectedService(service);
-    history.push("/dashboard");
+    history.push("/dashboard/order");
   };
 
   const [services, SetServices] = useState([]);

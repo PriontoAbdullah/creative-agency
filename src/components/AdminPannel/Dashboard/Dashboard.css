@@ -1,5 +1,6 @@
 .dashboard {
 	min-height: 38rem;
+	width: 100vw;
 }
 .Pane.vertical.Pane1 {
 	width: 15% !important;

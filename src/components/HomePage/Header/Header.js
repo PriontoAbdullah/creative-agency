@@ -36,7 +36,7 @@ const Header = () => {
 							Contact Us
 						</Link>
 						{LoggedInUser.email && (
-							<NavLink to="/dashboard" className="loginBtn">
+							<NavLink to="/dashboard/order" className="loginBtn">
 								Dashboard
 							</NavLink>
 						)}
