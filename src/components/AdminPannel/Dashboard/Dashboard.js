@@ -9,10 +9,12 @@ import CreateReview from '../CreateReview/CreateReview';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import Order from '../Order/Order';
 import ServiceList from '../ServiceList/ServiceList';
+import ServicesList from '../ServicesList/ServicesList';
 import './Dashboard.css';
 
 const DashBoard = () => {
-	const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
+    const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
+    let history = useHistory();
 
 	useEffect(() => {
 		fetch(`http://localhost:8080/getAdmin?email=${LoggedInUser.email}`).then((res) => res.json()).then((data) => {
@@ -20,7 +22,8 @@ const DashBoard = () => {
 			if (data) {
 				const newUser = { ...LoggedInUser };
 				newUser.setUser = true;
-				SetLoggedInUser(newUser);
+                SetLoggedInUser(newUser);
+                history.push('/dashboard/AllOrders');
 			} else {
 				const newUser = { ...LoggedInUser };
 				newUser.setUser = false;
@@ -28,8 +31,6 @@ const DashBoard = () => {
 			}
 		});
 	}, []);
-
-	let history = useHistory();
 
 	const logoutHandle = () => {
 		SetLoggedInUser('');
@@ -98,6 +99,7 @@ const DashBoard = () => {
 							<Route path="/dashboard/makeAdmin" component={MakeAdmin} />
 							<Route path="/dashboard/service-list" component={ServiceList} />
 							<Route path="/dashboard/create-review" component={CreateReview} />
+                            <Route path='/dashboard/AllOrders' component={ServicesList} />
 						</div>
 					</div>
 				</div>
