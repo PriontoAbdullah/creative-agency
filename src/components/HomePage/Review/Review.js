@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import AllReviews from "../../../fakeData/fakeReviews";
 import SingleReview from "../SingleReview/SingleReview";
 const Review = () => {
   const [reviews, SetReviews] = useState([]);
 
   useEffect(() => {
-       SetReviews(AllReviews);
+    fetch("http://localhost:8080/Reviews")
+      .then(res => res.json())
+      .then(getReviews => {
+        SetReviews(getReviews.slice(0, 6));
+      });
   }, []);
 
   return (
@@ -24,7 +27,7 @@ const Review = () => {
 
         <div className='row justify-content-around'>
           {reviews.map(review => (
-            <SingleReview key={review.id} review={review} />
+            <SingleReview key={review._id} review={review} />
           ))}
         </div>
       </div>

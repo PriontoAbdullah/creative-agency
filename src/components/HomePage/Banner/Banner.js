@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-scroll';
 import banner from "../../../images/logos/Frame.png";
 import "./Banner.css";
 
@@ -15,7 +15,7 @@ const Banner = () => {
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam
                 soluta laudantium numquam unde facilis excepturi
               </p>
-              <Link className='hire' to=''>
+              <Link className='hire' to="portfolio" spy={true} smooth={true} delay={100} offset={0} duration={500}>
                 Hire Us
               </Link>
             </div>

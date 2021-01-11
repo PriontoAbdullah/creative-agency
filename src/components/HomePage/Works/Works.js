@@ -19,7 +19,7 @@ const Works = () => {
 	console.log(works);
 
 	return (
-		<section className="works-section my-5 py-5 w-100">
+		<section className="works-section my-5 py-5 w-100" id="works">
 			<Container >
 				<div className="py-4">
 					<h3

@@ -28,6 +28,7 @@ a.hire {
 	border-radius: 6px;
 	text-decoration: none !important;
 	transition: all 0.5s ease-in-out;
+	cursor: pointer;
 }
 
 a.hire:hover {

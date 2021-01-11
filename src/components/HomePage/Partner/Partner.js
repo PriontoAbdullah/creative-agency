@@ -10,7 +10,7 @@ const Partner = () => {
   }, []);
 
   return (
-    <section className='partner'>
+    <section className='partner' id="portfolio">
       <div className='container d-flex justify-content-around align-items-center my-5'>
         {partners.map(partner => (
           <SinglePartner key={partner.id} partner={partner} />

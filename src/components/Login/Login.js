@@ -26,23 +26,6 @@ const Login = () => {
 
   // Google Sign in function
 
-  // const googleSignInHandler = e => {
-  //   e.preventDefault();
-  //   const provider = new firebase.auth.GoogleAuthProvider();
-  //   firebase
-  //     .auth()
-  //     .signInWithPopup(provider)
-  //     .then(function (result) {
-  //       SetLoggedInUser(result.user);
-  //       history.replace(from);
-  //     })
-  //     .catch(function (error) {
-  //       var errorMessage = error.message;
-  //       console.log(errorMessage);
-  //     });
-  // };
-
-
   const handleGoogleSignIn = () => {
 		const provider = new firebase.auth.GoogleAuthProvider();
 

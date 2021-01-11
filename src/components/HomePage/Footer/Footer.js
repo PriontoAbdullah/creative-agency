@@ -5,7 +5,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer style={{ background: '#FBD062', padding: '4rem' }}>
+    <footer style={{ background: '#FBD062', padding: '4rem' }} id="contact">
       <div className='row footer'>
         <div className='col-md-6'>
           <div className='footerLeft'>
