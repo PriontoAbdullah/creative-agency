@@ -70,7 +70,6 @@ const Order = () => {
 		formRef.current.reset();
 	};
 
-
 	return (
 		<div className="orderForm">
 			{!newOrder.success && (
@@ -88,6 +87,7 @@ const Order = () => {
 						defaultValue={LoggedInUser.name}
 						name="company_name"
 						placeholder="Your Name/Company Name"
+						required={true}
 					/>
 				</Form.Group>
 				<Form.Group controlId="formBasicEmail">
@@ -95,13 +95,15 @@ const Order = () => {
 						type="email"
 						defaultValue={LoggedInUser.email}
 						placeholder="Enter Email Address"
+						required={true}
 					/>
 				</Form.Group>
 				<Form.Group controlId="formBasicText">
 					<Form.Control
 						type="text"
-						defaultValue={selectedService.name}
+						defaultValue={selectedService.name || 'Web Development'}
 						placeholder="Enter A Service"
+						required={true}
 					/>
 				</Form.Group>
 				<Form.Group controlId="formBasicText">
@@ -111,11 +113,18 @@ const Order = () => {
 						onBlur={inputHandler}
 						placeholder="Project Details"
 						rows="4"
+						required={true}
 					/>
 				</Form.Group>
 				<div className="fff d-flex justify-content-between  mb-3">
 					<Form.Group controlId="formBasicText1" className="m-0">
-						<Form.Control type="text" onBlur={inputHandler} placeholder="Price" />
+						<Form.Control 
+							type="text"
+							name="price" 
+							onBlur={inputHandler} 
+							placeholder="Price"
+							required={true} 
+						/>
 					</Form.Group>
 					<input
 						onChange={handleFileChange}
@@ -123,6 +132,7 @@ const Order = () => {
 						className="form-control ml-5"
 						id="formBasicText1"
 						placeholder="Picture"
+						required={true}
 					/>
 				</div>
 				<button className="submitContact" variant="primary" type="submit">

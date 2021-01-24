@@ -64,6 +64,7 @@ const CreateReview = () => {
 					name="name" 
 					onBlur={inputHandler} 
 					defaultValue={LoggedInUser.name}
+					required={true}
 					placeholder="Your Name" />
 				</Form.Group>
 				<Form.Group controlId="formBasicText">
@@ -72,6 +73,7 @@ const CreateReview = () => {
 						onBlur={inputHandler}
 						name="designation"
 						placeholder="Company name / Designation "
+						required={true}
 					/>
 				</Form.Group>
 				<Form.Group controlId="formBasicText">
@@ -81,6 +83,7 @@ const CreateReview = () => {
 						name="review"
 						placeholder="Description"
 						rows="4"
+						required={true}
 					/>
 				</Form.Group>
 				<button className="submitContact" variant="primary" type="submit">
