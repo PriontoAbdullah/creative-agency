@@ -1,12 +1,12 @@
 import { Frame } from "framer";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../../App";
 import SingleService from "../SingleService/SingleService";
 
 const Service = () => {
 
-  const { selectedService, SetSelectedService } = useContext(UserContext);
+  const { services, SetServices, selectedService, SetSelectedService } = useContext(UserContext);
   let history = useHistory();
 
   const handleRoute = service => {
@@ -14,15 +14,7 @@ const Service = () => {
     history.push("/dashboard/order");
   };
 
-  const [services, SetServices] = useState([]);
-
-  useEffect(() => {
-    fetch("https://creative-agency-71.herokuapp.com/Services")
-      .then(res => res.json())
-      .then(getServices => {
-        SetServices(getServices.slice(0, 6));
-      });
-  }, []);
+  
 
   return (
     <section className='serviceSection' style={{ margin: "5rem" }}>

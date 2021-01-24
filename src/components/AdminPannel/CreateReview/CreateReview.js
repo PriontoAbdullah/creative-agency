@@ -4,11 +4,11 @@ import { UserContext } from '../../../App';
 import './CreateReview.css';
 
 const CreateReview = () => {
-	const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
+	const { LoggedInUser, SetLoggedInUser, reviews, SetReviews } = useContext(UserContext);
 
 	const [ newReview, SetNewReview ] = useState({
 		img: `${LoggedInUser.photoURL}`,
-		name: '',
+		name: `${LoggedInUser.name}`,
 		designation: '',
 		review: '',
 		success: '',
@@ -25,6 +25,9 @@ const CreateReview = () => {
 	const formRef = useRef(null);
 
 	const handleReviewSubmit = (event) => {
+
+		SetReviews(reviews => [...reviews, newReview]);
+		
 		event.preventDefault();
 		fetch('https://creative-agency-71.herokuapp.com/addSingleReview', {
 			method: 'POST',
@@ -56,7 +59,12 @@ const CreateReview = () => {
 			{newReview.error && <p className="text-danger">{newReview.error}</p>}
 			<Form onSubmit={handleReviewSubmit} ref={formRef}>
 				<Form.Group controlId="formBasicText">
-					<Form.Control type="text" name="name" onBlur={inputHandler} placeholder="Your Name" />
+					<Form.Control 
+					type="text" 
+					name="name" 
+					onBlur={inputHandler} 
+					defaultValue={LoggedInUser.name}
+					placeholder="Your Name" />
 				</Form.Group>
 				<Form.Group controlId="formBasicText">
 					<Form.Control

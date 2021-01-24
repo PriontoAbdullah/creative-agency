@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../../App";
 import SingleReview from "../SingleReview/SingleReview";
-const Review = () => {
-  const [reviews, SetReviews] = useState([]);
 
-  useEffect(() => {
-    fetch("https://creative-agency-71.herokuapp.com/Reviews")
-      .then(res => res.json())
-      .then(getReviews => {
-        SetReviews(getReviews.slice(0, 6));
-      });
-  }, []);
+const Review = () => {
+
+  const { reviews, SetReviews } = useContext(UserContext);
 
   return (
     <section className='review' style={{ margin: "6rem 0" }}>
@@ -22,11 +17,11 @@ const Review = () => {
             marginBottom: "3rem",
             color: "#171B4E",
           }}>
-          Client <span style={{ color: "#7AB259" }}>Feedback</span>{" "}
+          Client <span style={{ color: "#7AB259" }}>Feedback</span>
         </h3>
 
         <div className='row justify-content-around'>
-          {reviews.map(review => (
+          {reviews && reviews.map(review => (
             <SingleReview key={review._id} review={review} />
           ))}
         </div>
